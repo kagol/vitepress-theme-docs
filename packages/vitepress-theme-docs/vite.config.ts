@@ -7,7 +7,19 @@ import dts from 'vite-plugin-dts'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [vue(), dts({ outDir: './dist/types' })],
+  plugins: [
+    vue(), dts({ outDir: './dist/types' }),
+    {
+      name: 'resolve-virtual-module',
+      resolveId(id) {
+        if (id === '@localSearchIndex') return '\0localSearchIndex'
+        if (id === '@siteData') return '\0siteData'
+      },
+      load(id) {
+        if (id === '\0localSearchIndex' || id === '\0siteData') return 'export default {}'
+      }
+    }
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -18,7 +30,7 @@ export default defineConfig({
     rollupOptions: {
       // 确保外部化处理那些
       // 你不想打包进库的依赖
-      external: ['vue', 'vitepress', '@localSearchIndex', '@siteData'],
+      external: ['vue', 'vitepress'],
       output: {
         // 在 UMD 构建模式下为这些外部化的依赖
         // 提供一个全局变量

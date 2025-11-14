@@ -2,23 +2,20 @@
   "name": "vitepress-theme-docs",
   "version": "0.0.1",
   "type": "module",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
-  "style": "src/style.css",
+  "main": "dist/vitepress-theme-docs.js",
+  "module": "dist/vitepress-theme-docs.js",
+  "types": "dist/types/index.d.ts",
+  "style": "dist/style.css",
   "publishConfig": {
-    "access": "public",
-    "main": "dist/vitepress-theme-docs.js",
-    "module": "dist/vitepress-theme-docs.js",
-    "types": "dist/types/index.d.ts",
-    "style": "dist/style.css"
+    "access": "public"
   },
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "vite build",
-    "prepublishOnly": "pnpm build"
+    "dev": "vite build --watch",
+    "build": "vite build"
   },
   "dependencies": {
     "vue": "^3.3.11"

@@ -2,7 +2,7 @@
   "name": "root-vitepress-theme-docs",
   "private": true,
   "scripts": {
-    "dev": "pnpm -F docs dev",
+    "dev": "pnpm -r --parallel -F vitepress-theme-docs -F docs dev",
     "build": "pnpm -F docs build",
     "preview": "pnpm -F docs preview",
     "build:lib": "pnpm -F vitepress-theme-docs build"
