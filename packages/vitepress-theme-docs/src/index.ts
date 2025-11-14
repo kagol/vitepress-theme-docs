@@ -3,7 +3,7 @@ import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
 import CustomTable from './components/CustomTable.vue'
-import '@opentiny/tiny-robot-style'
+// import '@opentiny/tiny-robot-style'
 import {nextTick, watch} from 'vue';
 import {useRoute} from 'vitepress';
 import mediumZoom from 'medium-zoom';

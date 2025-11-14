@@ -5,7 +5,7 @@
 
     <!-- 主内容区域 -->
     <div class="main-content">
-      <ThemeProvider :color-mode="colorMode">
+      <!-- <ThemeProvider :color-mode="colorMode"> -->
         <DefaultLayout>
             <template #doc-before>
               <div class="doc-title">
@@ -13,14 +13,14 @@
               </div>
           </template>
         </DefaultLayout>
-      </ThemeProvider>
+      <!-- </ThemeProvider> -->
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { ThemeProvider } from '@opentiny/tiny-robot'
+// import { ThemeProvider } from '@opentiny/tiny-robot'
 import { onMounted, onUnmounted, ref,computed,watch } from 'vue' 
 import { colorModeSubject } from './color-mode'
 import CustomHeader from './components/CustomHeader.vue'
