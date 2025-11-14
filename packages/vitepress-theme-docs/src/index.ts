@@ -3,10 +3,14 @@ import { setupDarkModeListener } from './color-mode'
 import Layout from './Layout.vue'
 import HomePage from './home/index.vue'
 import CustomTable from './components/CustomTable.vue'
+import CustomHeader from './components/CustomHeader.vue'
+import CustomSidebar from './components/CustomSidebar.vue'
+import TabNavigation from './components/TabNavigation.vue'
 // import '@opentiny/tiny-robot-style'
 import {nextTick, watch} from 'vue';
 import {useRoute} from 'vitepress';
 import mediumZoom from 'medium-zoom';
+import packageJson from '../package.json'
 // 引入样式文件
 import './medium-zoom.css';
 import './style.css'
@@ -17,8 +21,23 @@ declare global {
   }
 }
 
+export {
+  DefaultTheme,
+  Layout,
+  HomePage,
+  CustomTable,
+  CustomHeader,
+  CustomSidebar,
+  TabNavigation,
+}
+
+export * from './color-mode'
+export * from './utils/router'
+
 export default {
   ...DefaultTheme,
+  name: 'vitepress-theme-docs',
+  version: packageJson.version,
   enhanceApp({ app }) {
     // 监听暗黑模式变化
     setupDarkModeListener()

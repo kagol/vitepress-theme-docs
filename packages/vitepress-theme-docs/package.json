@@ -1,12 +1,24 @@
 {
   "name": "vitepress-theme-docs",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "main": "src/index.ts",
   "module": "src/index.ts",
+  "style": "src/style.css",
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/vitepress-theme-docs.js",
+    "module": "dist/vitepress-theme-docs.js",
+    "types": "dist/types/index.d.ts",
+    "style": "dist/style.css"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "vue": "^3.3.11"
@@ -17,6 +29,7 @@
     "medium-zoom": "^1.1.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
+    "vite-plugin-dts": "^4.5.4",
     "vitepress": "^1.6.4",
     "vue-tsc": "^3.1.3"
   }
